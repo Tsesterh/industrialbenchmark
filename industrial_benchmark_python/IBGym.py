@@ -24,7 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-import gym
+import gymnasium as gym
 import numpy as np
 from collections import OrderedDict
 
