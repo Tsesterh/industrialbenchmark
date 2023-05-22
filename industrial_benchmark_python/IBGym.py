@@ -160,7 +160,7 @@ class IBGym(gym.Env):
                              ' or "delta" for the change in the cost fucntion between steps.')
 
         self.info = self._markovian_state()  # entire markov state - not all info is visible in observations
-        return return_observation, return_reward, self.done, self.info
+        return return_observation, return_reward, self.done, False, self.info
 
     def reset(self):
         """
@@ -197,7 +197,7 @@ class IBGym(gym.Env):
         # whether or not the trajectory has ended
         self.done = False
 
-        return return_observation
+        return return_observation, {}
 
     def render(self, mode='human'):
         """
