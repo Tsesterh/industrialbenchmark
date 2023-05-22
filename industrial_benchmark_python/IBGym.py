@@ -162,7 +162,7 @@ class IBGym(gym.Env):
         self.info = self._markovian_state()  # entire markov state - not all info is visible in observations
         return return_observation, return_reward, self.done, False, self.info
 
-    def reset(self):
+    def reset(self, *, seed=None, options=None):
         """
         resets environment
         :return: first observation of fresh environment
