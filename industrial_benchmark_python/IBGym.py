@@ -217,6 +217,7 @@ class IBGym(gym.Env):
         if self.observation_type == "classic":
             self.observation = self.IB.visibleState()[:-2]
             return_observation = self.observation
+            return_observation = np.clip(return_observation, self.observation_space.low, self.observation_space.high)
 
         # when the observation type is include_past, an observation consists of self.n_past_timesteps state frames
         elif self.observation_type == "include_past":
@@ -239,7 +240,7 @@ class IBGym(gym.Env):
             return_observation = np.hstack(self.observation)  # return observation is a single flattened numpy.ndarray
             # check that return_observation is within the observation_space, otherwise set respective value to max or min of observation_space
             return_observation = np.clip(return_observation, self.observation_space.low, self.observation_space.high)
-            print(return_observation)
+            #print(return_observation)
         else:
             raise ValueError('Invalid observation_type. observation_type can either be "classic" or "include_past"')
 
