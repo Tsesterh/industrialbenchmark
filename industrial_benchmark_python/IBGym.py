@@ -239,7 +239,7 @@ class IBGym(gym.Env):
             return_observation = np.hstack(self.observation)  # return observation is a single flattened numpy.ndarray
             # check that return_observation is within the observation_space, otherwise set respective value to max or min of observation_space
             return_observation = np.clip(return_observation, self.observation_space.low, self.observation_space.high)
-
+            print(return_observation)
         else:
             raise ValueError('Invalid observation_type. observation_type can either be "classic" or "include_past"')
 
